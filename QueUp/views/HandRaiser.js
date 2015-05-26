@@ -15,10 +15,11 @@ var {
   Text,
   StyleSheet,
   View,
-  Image
+  Image,
+  AsyncStorage
 } = React;
 console.log("Before Socket");
-var sockets = new SocketIO("10.6.31.110:8000", {});
+var sockets = new SocketIO("10.6.31.151:8000", {});
 sockets.connect();
 sockets.on('connect', () => {
   console.log('Socket connected.');
@@ -36,7 +37,14 @@ var HandRaiserView = module.exports = React.createClass({
   handleHandRaise: function () {
     console.log("Hand Raise Request.");
     // console.log(JSON.stringify(this.props));
-    sockets.emit('handraise', {classID:this.props.data.selectedClass.ClassID});
+    AsyncStorage.getItem('QueUpCurrentUser').then((user) => {
+      var parsedUser = JSON.parse(user);
+      console.log(parsedUser.email);
+      sockets.emit('handraise', {
+        classID: this.props.data.selectedClass.classID,
+        email: parsedUser.email
+      });
+    });
   },
 
   componentWillMount: function () {

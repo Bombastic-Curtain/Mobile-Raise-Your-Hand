@@ -44,7 +44,7 @@ module.exports = React.createClass({
 			<TouchableOpacity onPress={() => this.props.onSelect(item)}>
 				<View style={styles.container}>			
 					<View style={styles.ClassList}>
-						<Text style={styles.ClassTitle} numberOfLines={2}>{item.ClassTitle}</Text>
+						<Text style={styles.ClassTitle} numberOfLines={2}>{item.name}</Text>
 					</View>					
 				</View>
 			</TouchableOpacity>

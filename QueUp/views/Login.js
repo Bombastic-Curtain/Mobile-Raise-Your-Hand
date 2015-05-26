@@ -58,6 +58,9 @@ var LoginView = module.exports = React.createClass({
         }, function(){
           AsyncStorage.setItem("FBToken", self.state.fbToken, () => {});
           console.log("------- token set , and save it with AsyncStorage---------");
+                    console.log("------- token set , and save it with AsyncStorage---------");
+
+          console.log("fb token " + this.state.fbToken);
           self.saveUserToSession(this.state.fbID, this.state.fbToken).then(function(userObj){
           self.props.navigator.replace({ id: 'home',  
                                              currentUser: userObj 

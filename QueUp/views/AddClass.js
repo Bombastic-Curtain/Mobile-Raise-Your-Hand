@@ -14,7 +14,7 @@ var AddClassView = module.exports = React.createClass({
 
   getInitialState: function () {
     return {
-      code: ""
+      classID: ""
     };
   },
 
@@ -23,7 +23,7 @@ var AddClassView = module.exports = React.createClass({
     AsyncStorage.getItem("FBToken")
       .then((user) => {
         console.log(user);
-        fetch("http://10.6.31.110:8000/api/students/joinClass", {
+        fetch("http://10.6.31.151:8000/api/students/joinClass", {
           method: "POST",
           headers: {
             user_role: 'student',
@@ -47,7 +47,7 @@ var AddClassView = module.exports = React.createClass({
           <TextInput
             style={styles.textInput}
             placeholder={"4 digit class ID"}
-            onChangeText={(text) => this.setState({code: text})}
+            onChangeText={(text) => this.setState({classID: text})}
           />
         </View>
 

@@ -5,7 +5,8 @@ var {
   Text,
   StyleSheet,
   View,
-  ListView
+  ListView,
+  AsyncStorage
 } = React;
 
 var HandRaiserView = require('./HandRaiser.js');
@@ -14,42 +15,7 @@ var HandRaiserView = require('./HandRaiser.js');
 var ClassItem = require('../Components/ClassItem.js');
 
 
-var HeaderLogo = require('../Components/HeaderLogo.js')
-
-
- var fakeJSON = [
-          {
-            ClassTitle: 'Super cool class',
-            ClassID: '8uoc',
-            Instructor: 'Professor Tim',
-            CurrentlyActive: true
-          },
-          {
-            ClassTitle: 'Another random class',
-            Instructor: 'Professor Bob',
-            CurrentlyActive: false
-          },
-          {
-            ClassTitle: 'Super cool class',
-            Instructor: 'Professor Tim',
-            CurrentlyActive: true
-          },
-          {
-            ClassTitle: 'Another random class',
-            Instructor: 'Professor Bob',
-            CurrentlyActive: false
-          },
-          {
-            ClassTitle: 'Super cool class',
-            Instructor: 'Professor Tim',
-            CurrentlyActive: true
-          },
-          {
-            ClassTitle: 'Another random class',
-            Instructor: 'Professor Bob',
-            CurrentlyActive: false
-          }
-        ];
+var HeaderLogo = require('../Components/HeaderLogo.js');
 
 
 var ClassListView = module.exports = React.createClass({
@@ -71,12 +37,26 @@ var ClassListView = module.exports = React.createClass({
   },
 
   componentDidMount: function() {
-      var self = this;
-      fakeJSON = fakeJSON;
-      console.log(fakeJSON);
-      self.setState({ dataSource: self.state.dataSource.cloneWithRows(fakeJSON) }, function(){
-              console.log(self.state.dataSource);
+    var self = this;
+    AsyncStorage.getItem("FBToken")
+      .then((user) => {
+        console.log(user);
+        fetch("http://10.6.31.151:8000/api/students/classList", {
+          method: "GET",
+          headers: {
+            user_role: 'student',
+            access_token: user,
+          }
+        })
+        .then(function (res) {
+          res.json().then((data) => {
+            self.setState({ dataSource: self.state.dataSource.cloneWithRows(data) }, function(){
+              console.log("state",self.state.dataSource);
+            });
+          });
+        });
       });
+
   },
 
 
@@ -95,11 +75,10 @@ var ClassListView = module.exports = React.createClass({
     return (
       <ClassItem item={item} onSelect={ (item) =>  {
              this.props.toRoute({
-              name: item.ClassTitle,
+              name: item.name,
               component: HandRaiserView,
               data: {selectedClass: item},
               titleComponent: HeaderLogo
-
             });
       }} />
     );
