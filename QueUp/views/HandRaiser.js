@@ -1,14 +1,13 @@
 'use strict';
 var React = require('react-native');
+var Stats = require('../Components/Stats.js');
 var SocketIO = require('react-native-swift-socketio');
 
-var LargeNumberBlock = require('../Components/LargeNumberBlock.js');
-
+// var LargeNumberBlock = require('../Components/LargeNumberBlock.js');
+var Utils = require('../utils/utils.js')
 
 var DeviceWidth = require('Dimensions').get('window').width;
 var DeviceHeight = require('Dimensions').get('window').height;
-
-
 
 var {
   TouchableOpacity,
@@ -18,78 +17,142 @@ var {
   Image,
   AsyncStorage
 } = React;
-console.log("Before Socket");
+
 var sockets = new SocketIO("10.6.31.151:8000", {});
 sockets.connect();
 sockets.on('connect', () => {
-  console.log('Socket connected.');
+  sockets.on('queued', () => {
+    Utils.queued();
+  });
+  sockets.on('calledOn', (data) => {
+    Utils.calledOn(data[0]);
+  });
 });
 
-var HandRaiserView = module.exports = React.createClass({
+var HandRaiseButton = module.exports = React.createClass({
 
   getInitialState: function () {
     return {
       called: false,
-      intervalId: 0
+      questionAsked: false
     };
+  },
+
+  componentWillMount: function () {
+    Utils.addQueuedListener(this.queued);
+    Utils.addCalledOnListener(this.calledOn);
+  },
+
+  componentWillUnmount: function () {
+    Utils.removeQueuedListener(this.boundQueued);
+    Utils.removeCalledOnListener(this.calledOn);
+  },
+
+  calledOn: function (data) {
+    console.log('Called On', data);
+
+    Utils.getAsyncStats()
+      .then((item) => {
+        var parsedItem = JSON.parse(item);
+        var newItem = {
+          classes: parsedItem.classes,
+          handsRaised: parsedItem.handsRaised,
+          calledsOn: parsedItem.calledsOn
+        };
+        Utils.setAsyncStats(JSON.stringify(newItem));
+    });
+
+    this.setState({
+      called: true
+    }, () => {
+      sockets.emit('studentReceivedCall', data);
+    });
+  },
+
+  queued: function () {
+    console.log("queued");
+    this.setState({
+      questionAsked: true
+    });
   },
 
   handleHandRaise: function () {
     console.log("Hand Raise Request.");
-    // console.log(JSON.stringify(this.props));
+    var self = this;
+
+    Utils.getAsyncStats()
+      .then((item) => {
+        var parsedItem = JSON.parse(item);
+        var newStats = {
+          classes: parsedItem.classes,
+          handsRaised: parsedItem.handsRaised + 1,
+          calledsOn: parsedItem.calledsOn
+        };
+        Utils.setAsyncStats(JSON.stringify(newStats))
+          .then(() => {
+            this.props.onPress();
+          });
+      });
+
+
     AsyncStorage.getItem('QueUpCurrentUser').then((user) => {
       var parsedUser = JSON.parse(user);
-      console.log(parsedUser.email);
       sockets.emit('handraise', {
         classID: this.props.data.selectedClass.classID,
         email: parsedUser.email
       });
     });
+
   },
 
-  componentWillMount: function () {
-    // this.setState({
-    //   intervalId: setInterval(() => {
-    //     fetch("http://localhost:8000/isCalled", {
-    //     method: "GET",
-    //     token:"TOKEN",
-    //     })
-    //     .then(function (res) {
-    //       this.handleCalledOn();
-    //     }.bind(this));
-    //   }, 700)
-    // });
-  },
-
-  handleCalledOn: function (res) {
+  handleDone: function () {
     this.setState({
-      called: true
-    });
-  },
-
-  handleBack: function () {
+      called: false,
+      questionAsked: false
+    })
   },
 
   render: function () {
-    console.log("------------------------ class title props -----------------> ");
-    console.log(this.props.data.selectedClass.ClassTitle);
+    if(this.state.called)
+      return (
+          <TouchableOpacity onPress={this.handleDone} >
+            <View style={styles.textContainer}>
+              <Text style={styles.raisedText}>Speak...</Text>
+              <Text style={styles.calledText}>(Tap when finished)</Text>
+            </View>
+          </TouchableOpacity>
+      );
+
+    if(!this.state.questionAsked)
+      return (
+        <View style={styles.ButtonContainer}>
+          <TouchableOpacity onPress={this.handleHandRaise} >
+            <Image
+              style={styles.handIcon}
+              source={require('image!handRaiseIcon')}
+            />
+          </TouchableOpacity>
+        </View>
+      );
+    else
+      return (
+        <View style={styles.textContainer}>
+          <Text style={styles.raisedText}>Hand Raised...</Text>
+        </View>
+      );
+  }
+
+});
+
+var HandRaiserView = module.exports = React.createClass({
+
+  render: function () {
     return (
       <View style={styles.container}>
-
           <Text style={styles.ClassTitle}> {this.props.data.selectedClass.ClassTitle} </Text>
-
-          <View style={styles.iconContainer} ref="dashBoardIcon">
-            <LargeNumberBlock value={'10'} label={'Classes'}  />
-            <LargeNumberBlock value={'12'} label={'Questions'} />
-            <LargeNumberBlock value={'12'} label={'Questions'} />
-          </View>
-
+          <Stats />
           <View style={styles.handRaiseIcon}>
-          <TouchableOpacity onPress={this.handleHandRaise} >
-               <Image
-              style={styles.handIcon}
-              source={require('image!handRaiseIcon')}/>  
-         </TouchableOpacity>
+            <HandRaiseButton onPress={Utils.updateStats} data={this.props.data} />
          </View>
       </View>
     );
@@ -100,9 +163,11 @@ var HandRaiserView = module.exports = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-        backgroundColor: '#18CFAA'
+    backgroundColor: '#18CFAA'
+  },
 
+  ButtonContainer: {
+    alignItems: "center"
   },
 
   TouchableOpacity: {
@@ -132,5 +197,21 @@ var styles = StyleSheet.create({
     height: 300,
     width: 230, 
   },
+  textContainer: { 
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
 
+  raisedText: { 
+    fontSize: 40,
+    top: -55,
+    color: "#fff"
+  },
+
+  calledText: { 
+    fontSize: 30,
+    top: -40,
+    color: "#fff"
+  },
 });

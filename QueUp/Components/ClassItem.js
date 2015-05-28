@@ -35,8 +35,6 @@ var styles = StyleSheet.create({
 module.exports = React.createClass({
 	render() {
 		var item = this.props.item;
-        console.log("------------------------------------------------");
-        console.log(item);
         //onPress={() => ListView.addScore(item._id)}
 
 		return (

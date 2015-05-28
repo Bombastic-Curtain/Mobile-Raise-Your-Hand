@@ -21,7 +21,6 @@ var HeaderLogo = require('../Components/HeaderLogo.js');
 var ClassListView = module.exports = React.createClass({
 
   getInitialState: function() {
-    console.log("----------------- class list rendered-------")
         return {
             dataSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2})        
         };
@@ -40,7 +39,6 @@ var ClassListView = module.exports = React.createClass({
     var self = this;
     AsyncStorage.getItem("FBToken")
       .then((user) => {
-        console.log(user);
         fetch("http://10.6.31.151:8000/api/students/classList", {
           method: "GET",
           headers: {
@@ -51,7 +49,6 @@ var ClassListView = module.exports = React.createClass({
         .then(function (res) {
           res.json().then((data) => {
             self.setState({ dataSource: self.state.dataSource.cloneWithRows(data) }, function(){
-              console.log("state",self.state.dataSource);
             });
           });
         });
@@ -71,7 +68,6 @@ var ClassListView = module.exports = React.createClass({
 
 
   renderRow: function(item) {
-    console.log('----- rendering rows----' + item );
     return (
       <ClassItem item={item} onSelect={ (item) =>  {
              this.props.toRoute({

@@ -39,18 +39,12 @@ module.exports = React.createClass({
   componentWillReceiveProps:function(){
   },
 
-
-
-
   render: function() {
     return (
       <View>
-  
         <View style={styles.menuCol} ref="menuContent">
         <ScrollView style={{paddingTop:15}}>
             <TouchableOpacity underlayColor="#ffffff" onPress={()=>{ 
-                console.log('---- pressed going to my classes view ----');
-                console.log (global.router);
                 global.router({
                     name: 'My Classes',
                     component: ClassListView,
@@ -64,29 +58,22 @@ module.exports = React.createClass({
                 </View>
             </TouchableOpacity>
 
-
          <TouchableOpacity underlayColor="#FFD200" onPress={()=>{ 
-              global.router({
-                  name: 'Add Classes',
-                  component: AddClassView,
-              });
-              
-              this.setTimeout(()=>{
-                  global.mainSideMenu.closeMenu();
-              }, 20);
+            global.router({
+                name: 'Add Classes',
+                component: AddClassView,
+            });
+            
+            this.setTimeout(()=>{
+                global.mainSideMenu.closeMenu();
+            }, 20);
 
-              }}>
-
-
-                <View style={styles.SideMenuItem}>
-                  <Text style={styles.ItemText}>ADD CLASSES  </Text>
-                </View>
-
-
+            }}>
+            <View style={styles.SideMenuItem}>
+              <Text style={styles.ItemText}>ADD CLASSES  </Text>
+            </View>
           </TouchableOpacity>
-
           </ScrollView>
-
         </View>
       </View>
     );

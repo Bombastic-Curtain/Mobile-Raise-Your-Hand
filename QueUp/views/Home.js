@@ -55,10 +55,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-
-    console.log("----------- trying to render home ------- ");
-    console.log("----------- trying to render home ------- ");
-
     return (
     <MainSideMenu menu={<SideMenuView />} ref="mainSideMenu">
 

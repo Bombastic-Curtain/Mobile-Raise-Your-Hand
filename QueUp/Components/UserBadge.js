@@ -11,7 +11,6 @@ var {
 
 var UserBadge = React.createClass({
   render: function(){
-console.log(this.props.currentUser);
     return (
       <View style={styles.container}>
         <Image style={styles.userAvatar} source={{uri: this.props.currentUser.currentUserPicture}}/>

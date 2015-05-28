@@ -15,8 +15,6 @@ var {
   Animation
 } = React;
 
-
-
 var Router = require('react-native-router');
 var DeviceWidth = require('Dimensions').get('window').width;
 var DeviceHeight = require('Dimensions').get('window').height;
@@ -25,15 +23,13 @@ var MainSideMenu = require('react-native-side-menu');
 var SideMenuView = require('../Components/SideMenu.js');
 var SideMenuIconComponent = require('../Components/SideMenuButton.js');
 
-var LargeNumberBlock = require('../Components/LargeNumberBlock.js');
+// var LargeNumberBlock = require('../Components/LargeNumberBlock.js');
 var AnimationExperimental = require('AnimationExperimental');
+var Stats = require('../Components/Stats.js');
 
 var UserBadge = require('../Components/UserBadge.js')
-
+var Utils = require('../utils/utils.js');
 var HeaderLogo = require('../Components/HeaderLogo.js')
-
-
-
 
 module.exports = React.createClass({
 
@@ -59,29 +55,15 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    console.log("---- trying to render dashboard -----");
+    Utils.updateStats();
     return (
-
       <View style={styles.container}>
-
         <UserBadge currentUser = {this.state} />
-
-        <View style={styles.iconContainer} >
-          <LargeNumberBlock value={'10'} label={'Classes'} ref="dashBoardIcon" />
-          <LargeNumberBlock value={'12'} label={'Questions'} />
-          <LargeNumberBlock value={'12'} label={'Questions'} />
-        </View>
-              
+        <Stats />        
         <View style={styles.dashBottom} >
-         
-
-
-
         </View>
-    </View>
-
-
-    )
+      </View>
+    );
   }
 });
 
@@ -103,15 +85,10 @@ var styles = StyleSheet.create({
     borderBottomWidth: .5,
     borderTopColor: 'white',
     borderTopWidth: .5
-
-
   },
   dashBottom: {
     height: DeviceHeight/2,
     width: DeviceWidth
   }
-
-
-
 
 });

@@ -25,29 +25,12 @@ var firstRoute = {
 
 var QueUp = React.createClass({
 
-// getUserState: function(){
-//   return new Promise(function(resolve, reject){
-
-//     var user = {};
-//     AsyncStorage.getItem("QueUpCurrentUser")
-//       .then((userObj)=>{
-//         if(userObj !== null) {
-//           user = JSON.parse(userObj); 
-//           console.log("----------- user already logged in , user object is : -------");
-//           console.log('user object saved in index ');
-//         }
-//         resolve(user);
-//       });
-//   });
-// },
-
 componentWillUpdate: function(){
 
 },
 
 
 renderScene: function(route, nav) {
-    console.log('******************** render scene called -------' + route.currentUser);
     var currentUser;
     if(route.currentUser){
       return <HomeView currentUser={route.currentUser}/>;

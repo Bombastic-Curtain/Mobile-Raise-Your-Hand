@@ -16,7 +16,7 @@ module.exports = React.createClass({
       <TouchableOpacity onPress={()=>{ global.mainSideMenu.toggleMenu(); }}>
           <Icon
             name='fontawesome|bars'
-            size={15}
+            size={20}
             color='#ffffff'
             style={styles.menuBarIcon}/>
       </TouchableOpacity>
@@ -26,7 +26,7 @@ module.exports = React.createClass({
 
 var styles = StyleSheet.create({
   menuBarIcon: {
-    width: 49,
+    width: 39,
     height: 49
   }
 });
