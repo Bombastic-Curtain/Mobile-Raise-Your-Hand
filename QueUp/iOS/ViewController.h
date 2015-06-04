@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *BackToReact;
 - (IBAction)back:(id)sender;
 - (IBAction)call:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *back;
 
 @end

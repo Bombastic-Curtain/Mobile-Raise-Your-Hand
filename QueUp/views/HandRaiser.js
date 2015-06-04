@@ -109,11 +109,12 @@ var HandRaiseButton = module.exports = React.createClass({
     });
 
     this.setState({
-      called: true
-    }, () => {
-      sockets.emit('studentReceivedCall', data);
+      called: false,
+      questionAsked: false
     });
+
     NativeViewBridge.goToNative();
+    
   },
 
   queued: function () {
@@ -159,19 +160,12 @@ var HandRaiseButton = module.exports = React.createClass({
     this.setState({
       called: false,
       questionAsked: false
-    })
+    }, () => {
+      sockets.emit('studentReceivedCall', data);
+    });
   },
 
   render: function () {
-    if(this.state.called)
-      return (
-          <TouchableOpacity onPress={this.handleDone} >
-            <View style={styles.textContainer}>
-              <Text style={styles.raisedText}>Speak...</Text>
-              <Text style={styles.calledText}>(Tap when finished)</Text>
-            </View>
-          </TouchableOpacity>
-      );
 
     if(!this.state.questionAsked)
       return (
