@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-global.SERVER_PATH = "http://localhost:8000";
+global.SERVER_PATH = "http://10.6.31.110:8000";
 var LoginView = require('./views/Login.js');
 var HomeView = require('./views/Home.js');
 

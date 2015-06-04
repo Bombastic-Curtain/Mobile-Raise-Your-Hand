@@ -108,10 +108,7 @@ var HandRaiseButton = module.exports = React.createClass({
         Utils.setAsyncStats(JSON.stringify(newItem));
     });
 
-    this.setState({
-      called: false,
-      questionAsked: false
-    });
+    this.handleDone(data);
 
     NativeViewBridge.goToNative();
     
@@ -155,7 +152,7 @@ var HandRaiseButton = module.exports = React.createClass({
 
   },
 
-  handleDone: function () {
+  handleDone: function (data) {
     this.setState({
       called: false,
       questionAsked: false
