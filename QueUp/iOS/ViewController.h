@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Sinch/Sinch.h>
 
+#import <RCTBridge.h>
+#import <RCTBridgeModule.h>
+
 
 @interface ViewController : UIViewController <SINCallClientDelegate>
 

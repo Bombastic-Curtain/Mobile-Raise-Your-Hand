@@ -21,6 +21,7 @@ var HomwView = require('./Home.js');
 
 var Video = require('react-native-video');
 
+var NativeViewBridge = require('NativeModules').NativeViewBridge;
 
 
 
@@ -97,6 +98,9 @@ var LoginView = module.exports = React.createClass({
     return new Promise(function(resolve, reject) {
         self.fetchUserDataFromFB(fbId, fbToken).then(function(JSONres){
             var userObj = JSON.stringify(JSONres);
+            // //--------------------- TAKE THE EMAIL ADDRESS AND SEND IT OVER TO OBJECT C   -------------------
+            // NativeViewBridge.addEmail(JSONres.email.toString());
+            // //------------------------------------------------
             AsyncStorage.setItem('QueUpCurrentUser', userObj, (error) => {
                 if (error) {
                   console.log('----- saving token failed : ( -------' + error.message);

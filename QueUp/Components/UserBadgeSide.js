@@ -12,6 +12,7 @@ var {
 var UserBadgeSide = React.createClass({
 
   render: function(){
+    console.log(this.props.currentUser, "User OBJECT");
     var userObj = JSON.parse(this.props.currentUser);
     var avatarWidth = this.props.avatarWidth;
     var avatarHeight = this.props.avatarHeight;

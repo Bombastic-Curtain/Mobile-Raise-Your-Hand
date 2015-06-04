@@ -29,11 +29,17 @@ var DashboardView = require('./Dashboard.js');
 var HeaderLogo = require('../Components/HeaderLogo.js')
 
 
+var NativeViewBridge = require('NativeModules').NativeViewBridge;
+
 
 module.exports = React.createClass({
 
   getInitialState: function () {
     var currentUser = JSON.parse(this.props.currentUser);
+
+    NativeViewBridge.addEmail(currentUser.email.toString());
+    //var NativeViewBridge = require('NativeModules').NativeViewBridge;
+
     return {
       currentUserName: currentUser.name,
       currentUserEmail: currentUser.email,

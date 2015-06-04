@@ -15,7 +15,9 @@ var {
   StyleSheet,
   View,
   Image,
-  AsyncStorage
+  AsyncStorage,
+    DeviceEventEmitter,
+    TouchableHighlight
 } = React;
 
 console.log(global.SERVER_PATH.slice(7), 'GLOBAL');
@@ -32,6 +34,17 @@ sockets.on('connect', () => {
 });
 var NativeViewBridge = require('NativeModules').NativeViewBridge;
 
+//--------- Brige to native UIViewController , for webRTC (test) ------------
+var NativeViewBridge = require('NativeModules').NativeViewBridge;
+console.log('-------- native module mthods ------');
+console.log(NativeViewBridge);
+//--------------------------------------------------------------------------
+
+//------------------- RCTDeviceEventEmitter --------------------
+
+var RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
+
+
 var HandRaiseButton = module.exports = React.createClass({
 
   getInitialState: function () {
@@ -41,9 +54,39 @@ var HandRaiseButton = module.exports = React.createClass({
     };
   },
 
+  
+  componentDidMount: function() {
+
+
+  var addedObserver = DeviceEventEmitter.addListener('NewMicEvent', function(data) {
+
+      console.log("************ MIC END ====================");
+      console.log("************ MIC END ===============");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+      console.log("************ MIC END **********");
+
+
+     
+    });
+
+
+  },
+
+
   componentWillMount: function () {
     Utils.addQueuedListener(this.queued);
     Utils.addCalledOnListener(this.calledOn);
+
   },
 
   componentWillUnmount: function () {
@@ -83,6 +126,8 @@ var HandRaiseButton = module.exports = React.createClass({
   handleHandRaise: function () {
     console.log("Hand Raise Request.");
     var self = this;
+
+    NativeViewBridge.goToNative();
 
     Utils.getAsyncStats()
       .then((item) => {
