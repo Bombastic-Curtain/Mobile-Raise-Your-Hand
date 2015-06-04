@@ -24,9 +24,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="back:" destination="dBK-P9-a0Z" eventType="touchUpInside" id="WKu-zq-4cP"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwh-8c-YzZ">
                                 <rect key="frame" x="48" y="188" width="225" height="31"/>
@@ -44,16 +41,23 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="back:" destination="dBK-P9-a0Z" eventType="touchUpInside" id="cJC-cC-ALB"/>
+                                    <action selector="back:" destination="dBK-P9-a0Z" eventType="touchUpInside" id="F7H-tX-lL6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thJ-yh-FEu">
+                                <rect key="frame" x="-7" y="95" width="334" height="85"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                <state key="normal" title="Speak...">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="dBK-P9-a0Z" eventType="touchUpInside" id="t54-qp-fNh"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.35686274509803922" green="0.74901960784313726" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <connections>
-                        <outlet property="BackToReact" destination="dUM-3b-iLC" id="hxl-Xe-0ms"/>
-                        <outlet property="back" destination="Fsd-Kk-CFp" id="xoU-CY-jWk"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct0-s8-Fgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

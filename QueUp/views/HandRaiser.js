@@ -128,7 +128,6 @@ var HandRaiseButton = module.exports = React.createClass({
     console.log("Hand Raise Request.");
     var self = this;
 
-    NativeViewBridge.goToNative();
 
     Utils.getAsyncStats()
       .then((item) => {

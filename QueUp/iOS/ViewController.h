@@ -15,10 +15,11 @@
 
 @interface ViewController : UIViewController <SINCallClientDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *callButton;
-@property (weak, nonatomic) IBOutlet UIButton *BackToReact;
+
 - (IBAction)back:(id)sender;
 - (IBAction)call:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *back;
+@property (weak, nonatomic) IBOutlet UIButton *done1;
+
+@property (weak, nonatomic) IBOutlet UIButton *done2;
 
 @end

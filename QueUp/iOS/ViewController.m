@@ -26,7 +26,6 @@
 
 
 @implementation ViewController
-@synthesize callButton;
 
 -(void)initSinchClient
 {
