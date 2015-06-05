@@ -37,9 +37,14 @@ RCT_EXPORT_METHOD(addEmail:(NSString *)currentUserEmail){
   //================ we should remove this somewhere , dealloc =======
 
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(micEndedEvent:)
-                                               name:@"micEndedNotificaiton"
-                                             object:nil];
+                                        selector:@selector(micEndedEvent:)
+                                        name:@"micEndedNotificaiton"
+                                        object:nil];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                        selector: @selector(callEstablishedEvent:)
+                                        name:@"callEstablishedNotification"
+                                        object:nil];
 
   
 }
@@ -53,9 +58,16 @@ RCT_EXPORT_METHOD(addEmail:(NSString *)currentUserEmail){
 //  NSString *eventName = notification.userInfo[@"name"];
 //  [self.bridge.eventDispatcher sendAppEventWithName:@"EventReminder"
 //                                               body:@{@"name": eventName}];
+  NSLog(@"%@", self.bridge);
 //  
-  [self.bridge.eventDispatcher sendDeviceEventWithName:@"NewMicEvent"
-                                              body:@{@"NewMicEvent":@"NewMicEvent"}];
+  [self.bridge.eventDispatcher sendDeviceEventWithName:@"MicEndedEvent"
+                                              body:nil];
+}
+
+- (void) callEstablishedEvent: (NSNotification *) notification {
+  NSLog(@"Call Esatablished Event");
+  [self.bridge.eventDispatcher sendDeviceEventWithName:@"CallEstablishedEvent"
+                                                  body: nil];
 }
 
 

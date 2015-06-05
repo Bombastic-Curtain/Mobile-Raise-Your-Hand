@@ -50,7 +50,6 @@
 		8B749EAC1B1BA10100D360EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EAB1B1BA10100D360EF /* AVFoundation.framework */; };
 		8B749EAE1B1BA10700D360EF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EAD1B1BA10700D360EF /* Security.framework */; };
 		8B749EB01B1BA1DA00D360EF /* Mic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B749EAF1B1BA1DA00D360EF /* Mic.storyboard */; };
-		8B749EB61B1BA31100D360EF /* MicViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B749EB51B1BA31100D360EF /* MicViewViewController.m */; };
 		8B749EBC1B1BAA8400D360EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B749EBB1B1BAA8400D360EF /* ViewController.m */; };
 		8B749EC51B1BBEF700D360EF /* libRNChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EC41B1BBEE700D360EF /* libRNChart.a */; };
 		8B8D522E1B10324F00157C20 /* libReactNativeIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D522D1B10322E00157C20 /* libReactNativeIcons.a */; };
@@ -239,8 +238,6 @@
 		8B749EAB1B1BA10100D360EF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8B749EAD1B1BA10700D360EF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8B749EAF1B1BA1DA00D360EF /* Mic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mic.storyboard; sourceTree = "<group>"; };
-		8B749EB41B1BA31100D360EF /* MicViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MicViewViewController.h; path = iOS/MicViewViewController.h; sourceTree = "<group>"; };
-		8B749EB51B1BA31100D360EF /* MicViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MicViewViewController.m; path = iOS/MicViewViewController.m; sourceTree = "<group>"; };
 		8B749EB71B1BA70C00D360EF /* NativeViewBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NativeViewBridge.h; path = iOS/NativeViewBridge.h; sourceTree = "<group>"; };
 		8B749EBA1B1BAA8400D360EF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = iOS/ViewController.h; sourceTree = "<group>"; };
 		8B749EBB1B1BAA8400D360EF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = iOS/ViewController.m; sourceTree = "<group>"; };
@@ -401,8 +398,6 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				8B749EAF1B1BA1DA00D360EF /* Mic.storyboard */,
-				8B749EB41B1BA31100D360EF /* MicViewViewController.h */,
-				8B749EB51B1BA31100D360EF /* MicViewViewController.m */,
 				8B749EBA1B1BAA8400D360EF /* ViewController.h */,
 				8B749EBB1B1BAA8400D360EF /* ViewController.m */,
 			);
@@ -874,7 +869,6 @@
 				321777311B0EFE8E00FCBBF0 /* SocketAnyEvent.swift in Sources */,
 				321777321B0EFE8E00FCBBF0 /* SocketEngine.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				8B749EB61B1BA31100D360EF /* MicViewViewController.m in Sources */,
 				3217772E1B0EFE8E00FCBBF0 /* Socket.swift in Sources */,
 				3217772F1B0EFE8E00FCBBF0 /* SocketBridge.m in Sources */,
 			);

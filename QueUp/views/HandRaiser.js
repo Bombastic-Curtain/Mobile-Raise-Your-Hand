@@ -16,8 +16,8 @@ var {
   View,
   Image,
   AsyncStorage,
-    DeviceEventEmitter,
-    TouchableHighlight
+  DeviceEventEmitter,
+  TouchableHighlight
 } = React;
 
 console.log(global.SERVER_PATH.slice(7), 'GLOBAL');
@@ -38,11 +38,6 @@ var NativeViewBridge = require('NativeModules').NativeViewBridge;
 var NativeViewBridge = require('NativeModules').NativeViewBridge;
 console.log('-------- native module mthods ------');
 console.log(NativeViewBridge);
-//--------------------------------------------------------------------------
-
-//------------------- RCTDeviceEventEmitter --------------------
-
-var RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
 
 
 var HandRaiseButton = module.exports = React.createClass({
@@ -56,30 +51,7 @@ var HandRaiseButton = module.exports = React.createClass({
 
   
   componentDidMount: function() {
-
-
-  var addedObserver = DeviceEventEmitter.addListener('NewMicEvent', function(data) {
-
-      console.log("************ MIC END ====================");
-      console.log("************ MIC END ===============");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-      console.log("************ MIC END **********");
-
-
-     
-    });
-
-
+    
   },
 
 
@@ -95,8 +67,7 @@ var HandRaiseButton = module.exports = React.createClass({
   },
 
   calledOn: function (data) {
-    console.log('Called On', data);
-
+    console.log('called on');
     Utils.getAsyncStats()
       .then((item) => {
         var parsedItem = JSON.parse(item);
@@ -108,14 +79,16 @@ var HandRaiseButton = module.exports = React.createClass({
         Utils.setAsyncStats(JSON.stringify(newItem));
     });
 
-    this.handleDone(data);
-
+    var MicEndedListener = DeviceEventEmitter.addListener('MicEndedEvent',
+      this.handleDone.bind(this, data));
     NativeViewBridge.goToNative();
-    
+    var CallEstablishedListener = DeviceEventEmitter.addListener('CallEstablishedEvent',
+      () => {
+        console.log("Call Established Event.");
+      });
   },
 
   queued: function () {
-    console.log("queued");
     this.setState({
       questionAsked: true
     });
@@ -124,7 +97,6 @@ var HandRaiseButton = module.exports = React.createClass({
   handleHandRaise: function () {
     console.log("Hand Raise Request.");
     var self = this;
-
 
     Utils.getAsyncStats()
       .then((item) => {
@@ -153,6 +125,7 @@ var HandRaiseButton = module.exports = React.createClass({
   },
 
   handleDone: function (data) {
+    console.log("Done Called.")
     this.setState({
       called: false,
       questionAsked: false
