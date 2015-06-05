@@ -40,8 +40,6 @@
 		3217773C1B0EFE8E00FCBBF0 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217772D1B0EFE8E00FCBBF0 /* WebSocket.swift */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8B24749E1B1398DD00CF9000 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B24749D1B13989D00CF9000 /* libRCTVideo.a */; };
-		8B2474A01B13991900CF9000 /* loginBackGround.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8B24749F1B13991900CF9000 /* loginBackGround.mp4 */; };
-		8B2474A21B139B8300CF9000 /* ffcspace.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8B2474A11B139B8300CF9000 /* ffcspace.mp4 */; };
 		8B749E9A1B1BA0E200D360EF /* Sinch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749E991B1BA0E200D360EF /* Sinch.framework */; };
 		8B749EAA1B1BA0FA00D360EF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EA91B1BA0FA00D360EF /* AudioToolbox.framework */; };
 		8B749EAC1B1BA10100D360EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EAB1B1BA10100D360EF /* AVFoundation.framework */; };
@@ -229,8 +227,6 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8B2474981B13989D00CF9000 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
-		8B24749F1B13991900CF9000 /* loginBackGround.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = loginBackGround.mp4; sourceTree = "<group>"; };
-		8B2474A11B139B8300CF9000 /* ffcspace.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ffcspace.mp4; sourceTree = "<group>"; };
 		8B749E991B1BA0E200D360EF /* Sinch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sinch.framework; sourceTree = "<group>"; };
 		8B749EA91B1BA0FA00D360EF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8B749EAB1B1BA10100D360EF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -499,8 +495,6 @@
 				8B749EAB1B1BA10100D360EF /* AVFoundation.framework */,
 				8B749EA91B1BA0FA00D360EF /* AudioToolbox.framework */,
 				8B749E991B1BA0E200D360EF /* Sinch.framework */,
-				8B2474A11B139B8300CF9000 /* ffcspace.mp4 */,
-				8B24749F1B13991900CF9000 /* loginBackGround.mp4 */,
 				8B8D522F1B1032CB00157C20 /* FAKFontAwesome.h */,
 				8B8D52301B1032CB00157C20 /* FAKFontAwesome.m */,
 				8B8D52311B1032CB00157C20 /* FAKFoundationIcons.h */,
@@ -827,8 +821,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B2474A21B139B8300CF9000 /* ffcspace.mp4 in Resources */,
-				8B2474A01B13991900CF9000 /* loginBackGround.mp4 in Resources */,
 				8B8D523E1B1032CB00157C20 /* FAKFontAwesome.h in Resources */,
 				8B8D523F1B1032CB00157C20 /* FAKFontAwesome.m in Resources */,
 				8B8D52401B1032CB00157C20 /* FAKFoundationIcons.h in Resources */,
@@ -966,6 +958,7 @@
 					"$(SRCROOT)/node_modules/react-native/React/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -977,6 +970,7 @@
 				PRODUCT_NAME = QueUp;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "node_modules/react-native-swift-socketio/RNSwiftSocketIO/SocketBridge.h";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -997,12 +991,14 @@
 					"$(SRCROOT)/node_modules/react-native/React/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = QueUp;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "node_modules/react-native-swift-socketio/RNSwiftSocketIO/SocketBridge.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

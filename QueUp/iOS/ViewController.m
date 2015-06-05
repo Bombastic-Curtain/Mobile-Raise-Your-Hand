@@ -8,6 +8,12 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import "NativeViewBridge.h"
+
+#import <RCTBridge.h>
+#import <RCTConvert.h>
+#import "RCTEventDispatcher.h"
+
 
 
 
@@ -24,10 +30,14 @@
 
 -(void)initSinchClient
 {
-  _client = [Sinch clientWithApplicationKey:@"ccdeeb0b-5733-4bcb-9f44-4b2a7a70dbfe"
-                          applicationSecret:@"7nlXhrVpKkSu71xffH4kAA=="
+  
+
+  
+  _client = [Sinch clientWithApplicationKey:@"dff6bf13-c7a3-4842-8a68-e4d34ecbc4da"
+                          applicationSecret:@"ERG90kpgEEShyfV08XHSSw=="
                             environmentHost:@"sandbox.sinch.com"
-                                     userId:@"user3"];
+                                     userId:userEmail];
+                                        //userId:@"tonychen933@gmail.com"];
   _client.callClient.delegate = self;
   [_client setSupportCalling:YES];
   [_client start];
@@ -48,47 +58,43 @@
 
 
 - (IBAction)call:(id)sender {
-  
   NSLog(@"***** trying to call *****");
-  
-  NSLog(@"***** in hedsdsdre *****");
-  
-  id<SINCallClient> callClient = [_client callClient];
-//  id<SINCall>  / /////call = [callClient callUserWithId:@"<user1>"];
-  
-//  
-//          _call = [[_client callClient] callPhoneNumber:@"13016559705"];
-  
-//           _call = [[_client callClient] callUserWithId:@"<user1>"];
+  NSLog(@"***** in here *****");
+  // _call = [_client.callClient callUserWithId:@"<test>"];
+  //        _call = [[_client callClient] callPhoneNumber:phoneNumber.text];
+  //         _call = [[_client callClient] callUserWithId:@"<test>"];
   //
-//          [callButton setTitle:@"Hangup" forState:UIControlStateNormal];
+  //        [callButton setTitle:@"Hangup" forState:UIControlStateNormal];
   
 }
 
 - (IBAction)back:(id)sender {
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
   
   AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  
   [appDelegate goToReactNative];
+  ///---------------------
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"micEndedNotificaiton"
+                                object:nil];
+  //----------------------
 }
 
 
 
 -(void)client:(id<SINCallClient>)client didReceiveIncomingCall:(id<SINCall>)call
 {
-  
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
-  NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$");
+  NSLog(@"-----------------------------------");
+  NSLog(@"-----------------------------------");
+  NSLog(@"-----------------------------------");
   [call answer];
   
   
   
 }
+
+
+
+
+
 
 @end
 
