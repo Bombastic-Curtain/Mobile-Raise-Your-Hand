@@ -13,11 +13,12 @@
 #import <RCTBridgeModule.h>
 
 
-@interface ViewController : UIViewController <SINCallClientDelegate>
+@interface ViewController : UIViewController <SINCallClientDelegate, SINCallDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *callButton;
-@property (weak, nonatomic) IBOutlet UIButton *BackToReact;
+
 - (IBAction)back:(id)sender;
 - (IBAction)call:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *done1;
+@property (weak, nonatomic) IBOutlet UIButton *done2;
 
 @end

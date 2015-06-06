@@ -26,24 +26,18 @@
 
 
 @implementation ViewController
-@synthesize callButton;
 
 -(void)initSinchClient
 {
-  
-
-  
-  _client = [Sinch clientWithApplicationKey:@"dff6bf13-c7a3-4842-8a68-e4d34ecbc4da"
-                          applicationSecret:@"ERG90kpgEEShyfV08XHSSw=="
+  _client = [Sinch clientWithApplicationKey:@"ccdeeb0b-5733-4bcb-9f44-4b2a7a70dbfe"
+                          applicationSecret:@"7nlXhrVpKkSu71xffH4kAA=="
                             environmentHost:@"sandbox.sinch.com"
-                                     userId:userEmail];
+                                     userId:@"user3"];
                                         //userId:@"tonychen933@gmail.com"];
   _client.callClient.delegate = self;
   [_client setSupportCalling:YES];
   [_client start];
   [_client startListeningOnActiveConnection];
-  
-  
 }
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -60,12 +54,6 @@
 - (IBAction)call:(id)sender {
   NSLog(@"***** trying to call *****");
   NSLog(@"***** in here *****");
-  // _call = [_client.callClient callUserWithId:@"<test>"];
-  //        _call = [[_client callClient] callPhoneNumber:phoneNumber.text];
-  //         _call = [[_client callClient] callUserWithId:@"<test>"];
-  //
-  //        [callButton setTitle:@"Hangup" forState:UIControlStateNormal];
-  
 }
 
 - (IBAction)back:(id)sender {
@@ -78,17 +66,19 @@
   //----------------------
 }
 
-
+-(void) callDidEstablish: (id<SINCall>)call {
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"callEstablishedNotification"
+                                        object:nil];
+}
 
 -(void)client:(id<SINCallClient>)client didReceiveIncomingCall:(id<SINCall>)call
 {
   NSLog(@"-----------------------------------");
   NSLog(@"-----------------------------------");
   NSLog(@"-----------------------------------");
+  call.delegate = self;
   [call answer];
-  
-  
-  
+  _call = call;
 }
 
 
