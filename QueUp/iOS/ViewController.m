@@ -32,7 +32,8 @@
   _client = [Sinch clientWithApplicationKey:@"ccdeeb0b-5733-4bcb-9f44-4b2a7a70dbfe"
                           applicationSecret:@"7nlXhrVpKkSu71xffH4kAA=="
                             environmentHost:@"sandbox.sinch.com"
-                                     userId:@"user3"];
+                            userId:userEmail];
+                                     //userId:@"user3"];
                                         //userId:@"tonychen933@gmail.com"];
   _client.callClient.delegate = self;
   [_client setSupportCalling:YES];
