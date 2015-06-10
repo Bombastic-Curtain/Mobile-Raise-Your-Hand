@@ -8,6 +8,7 @@ var HomeView = require('./views/Home.js');
 var Router = require('react-native-router');
 
 
+
 var {
   StyleSheet,
   Text,
@@ -48,6 +49,7 @@ renderScene: function(route, nav) {
 },
 
  render: function() {
+  // if user not logged in , redirect to login 
 
   return (
       <Navigator
