@@ -61,7 +61,7 @@ var xLabels = ['','','','','']; // ['0','1','2','3','4'];
 // ------------------- End of dummy data --- ----------------
 
 
-
+var NativeViewBridge = require('NativeModules').NativeViewBridge;
 
 //----------------------
 module.exports = React.createClass({

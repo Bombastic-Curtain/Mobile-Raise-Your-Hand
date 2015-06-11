@@ -23,6 +23,6 @@ var styles = StyleSheet.create({
   icon: {
     top: 3,
     width: 70,
-    height: 15
+    height: 20
   }
 });

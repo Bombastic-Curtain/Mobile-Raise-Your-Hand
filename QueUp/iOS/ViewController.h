@@ -1,3 +1,4 @@
+
 //
 //  ViewController.h
 //  QueUp
@@ -18,7 +19,9 @@
 
 - (IBAction)back:(id)sender;
 - (IBAction)call:(id)sender;
+@property UIImageView *loadingAnimation;
 @property (weak, nonatomic) IBOutlet UIButton *done1;
 @property (weak, nonatomic) IBOutlet UIButton *done2;
+
 
 @end
