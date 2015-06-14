@@ -32,7 +32,6 @@ sockets.on('connect', () => {
     Utils.calledOn(data[0]);
   });
 });
-var NativeViewBridge = require('NativeModules').NativeViewBridge;
 
 //--------- Brige to native UIViewController , for webRTC (test) ------------
 var NativeViewBridge = require('NativeModules').NativeViewBridge;

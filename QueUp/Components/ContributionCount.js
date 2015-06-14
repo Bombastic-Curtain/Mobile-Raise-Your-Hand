@@ -11,13 +11,10 @@ var {
 
 var ContributionCount = React.createClass({
   render: function(){
-      console.log('######################################=====================');
-
     return (
       <View style={styles.container}>
-        <Text style={styles.count}> 278.12 </Text>
-        <Text style={styles.minutes}> minutes </Text>
-
+        <Text style={styles.count}> 23.6 </Text>
+        <Text style={styles.minutes}>Avg. Qs per Week</Text>
       </View>
     )
   }

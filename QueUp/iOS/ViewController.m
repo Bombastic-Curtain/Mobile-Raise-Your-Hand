@@ -1,3 +1,4 @@
+
 //
 //  ViewController.m
 //  QueUp
@@ -27,6 +28,7 @@
 
 @implementation ViewController
 
+
 -(void)initSinchClient
 {
   _client = [Sinch clientWithApplicationKey:@"ccdeeb0b-5733-4bcb-9f44-4b2a7a70dbfe"
@@ -42,6 +44,26 @@
 }
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  NSArray *images = @[@"star1.png", @"star2.png", @"star3.png", @"star4.png", @"star5.png", @"star6.png"];
+  NSMutableArray *uiImages = [[NSMutableArray alloc] init];
+  for (int i = 0; i < images.count; i++) {
+    [uiImages addObject:[UIImage imageNamed:[images objectAtIndex:i]]];
+  }
+  int spinnerY = self.view.frame.size.height / 2 - 25;
+  int spinnerX = self.view.frame.size.width / 2 - 25;
+  
+  self.loadingAnimation = [[UIImageView alloc] initWithFrame:CGRectMake(spinnerX, spinnerY, 50, 50)];
+  self.loadingAnimation.animationImages = uiImages;
+  self.loadingAnimation.animationDuration = 0.75;
+  [self.view addSubview:self.loadingAnimation];
+  [self.loadingAnimation startAnimating];
+  
+  [self.done1 setEnabled:FALSE];
+  [self.done1 setHidden:TRUE];
+  [self.done2 setEnabled:FALSE];
+  [self.done2 setHidden:TRUE];
+  [self.loadingAnimation setHidden:FALSE];
   [self initSinchClient];
   // Do any additional setup after loading the view, typically from a nib.
 }
@@ -68,6 +90,11 @@
 }
 
 -(void) callDidEstablish: (id<SINCall>)call {
+  [self.done1 setEnabled:TRUE];
+  [self.done1 setHidden:FALSE];
+  [self.done2 setEnabled:TRUE];
+  [self.done2 setHidden:FALSE];
+  [self.loadingAnimation setHidden:TRUE];
   [[NSNotificationCenter defaultCenter] postNotificationName:@"callEstablishedNotification"
                                         object:nil];
 }
