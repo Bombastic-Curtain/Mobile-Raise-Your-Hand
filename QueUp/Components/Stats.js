@@ -42,7 +42,7 @@ var Stats = module.exports = React.createClass({
       <View style={styles.iconContainer} >
         <LargeNumberBlock value={this.state.classes} label={'Classes'} />
         <LargeNumberBlock value={this.state.handsRaised} label={'Hands Raised'} />
-        <LargeNumberBlock value={this.state.calledsOn} label={'Calleds On'} />
+        <LargeNumberBlock value={this.state.calledsOn} label={'Contributions'} />
       </View>
     );
   }

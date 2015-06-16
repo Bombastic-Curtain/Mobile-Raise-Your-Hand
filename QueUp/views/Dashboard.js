@@ -87,10 +87,6 @@ module.exports = React.createClass({
     // });
 
   },
-  shouldComponentUpdate:function(){
-  },
-  componentWillUnmount: function(){
-  },
   render: function() {
 
     Utils.updateStats();
@@ -122,10 +118,8 @@ module.exports = React.createClass({
         </RNChart>
 
 
-        </View>
-                <Stats />        
-
-
+      </View>
+        <Stats />        
       </View>
     );
   }

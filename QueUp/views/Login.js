@@ -71,12 +71,12 @@ var LoginView = module.exports = React.createClass({
           fbID: info.userId
         }, function(){
           AsyncStorage.setItem("FBToken", self.state.fbToken, () => {});
-          self.saveUserToSession(this.state.fbID, this.state.fbToken).then(function(userObj){
-          self.props.navigator.replace({ id: 'home',  
-                                             currentUser: userObj 
-                                           });
+          self.saveUserToSession(this.state.fbID, this.state.fbToken)
+            .then(function(userObj){
+              self.props.navigator.replace({ id: 'home',  
+                currentUser: userObj 
+              });
           });
-          
         });
       }
     });

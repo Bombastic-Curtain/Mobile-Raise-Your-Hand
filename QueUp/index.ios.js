@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-global.SERVER_PATH = "http://q-up.io";
+global.SERVER_PATH = "http://10.6.31.110:8000";
 var LoginView = require('./views/Login.js');
 var HomeView = require('./views/Home.js');
 
@@ -35,14 +35,12 @@ renderScene: function(route, nav) {
     var currentUser;
     if(route.currentUser){
       return <HomeView currentUser={route.currentUser}/>;
-    }else{
+    } else {
         switch (route.id) {
           case 'login':
-            return <LoginView navigator={nav}/>;
+            return <LoginView navigator={nav} />;
           default:
-            return (
-              <LoginView navigator={nav}/>
-            );
+            return <LoginView navigator={nav}/>;
         }
     }
 
