@@ -52,13 +52,9 @@ var Stats = module.exports = React.createClass({
 var styles = StyleSheet.create({
 
   iconContainer: {
-    flex: 1,
+    height: 80,
     flexDirection: 'row',
-    justifyContent: 'center',
-    borderBottomColor: 'white',
-    borderBottomWidth: .5,
-    borderTopColor: 'white',
-    borderTopWidth: .5
+    justifyContent: 'center'
   }
 
 });
