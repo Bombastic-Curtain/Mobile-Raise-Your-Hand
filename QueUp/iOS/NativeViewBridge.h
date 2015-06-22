@@ -14,8 +14,9 @@
 
 
 extern NSString *userEmail;
-- (void)micEndedEvent;
-- (void)micEndedEventCall;
+- (void) micEndedEvent: (NSNotification *) notification;
+- (void) callEstablishedEvent: (NSNotification *) notification;
+
 
 
 

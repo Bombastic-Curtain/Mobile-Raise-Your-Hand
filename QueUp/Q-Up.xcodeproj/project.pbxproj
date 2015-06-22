@@ -44,7 +44,6 @@
 		321A3ECD1B20B986009CA64E /* FacebookLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 321A3ECC1B20B986009CA64E /* FacebookLoginManager.m */; };
 		321A3ECF1B20C032009CA64E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 321A3ECE1B20C032009CA64E /* Default-568h@2x.png */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		8B24749E1B1398DD00CF9000 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B24749D1B13989D00CF9000 /* libRCTVideo.a */; };
 		8B749E9A1B1BA0E200D360EF /* Sinch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749E991B1BA0E200D360EF /* Sinch.framework */; };
 		8B749EAA1B1BA0FA00D360EF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EA91B1BA0FA00D360EF /* AudioToolbox.framework */; };
 		8B749EAC1B1BA10100D360EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EAB1B1BA10100D360EF /* AVFoundation.framework */; };
@@ -279,7 +278,6 @@
 				8B749EAC1B1BA10100D360EF /* AVFoundation.framework in Frameworks */,
 				8B749EAA1B1BA0FA00D360EF /* AudioToolbox.framework in Frameworks */,
 				321A3EC91B20B966009CA64E /* FBSDKCoreKit.framework in Frameworks */,
-				8B24749E1B1398DD00CF9000 /* libRCTVideo.a in Frameworks */,
 				8B8D522E1B10324F00157C20 /* libReactNativeIcons.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				321A3ECA1B20B966009CA64E /* FBSDKLoginKit.framework in Frameworks */,
@@ -612,7 +610,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "QueUp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Q-Up" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -941,9 +939,8 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/chent9288/Documents/FacebookSDK,
-					"$(PROJECT_DIR)",
 					/Users/johnpizzo/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -975,9 +972,8 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/chent9288/Documents/FacebookSDK,
-					"$(PROJECT_DIR)",
 					/Users/johnpizzo/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -987,7 +983,12 @@
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-Xlinker",
+					"-lc++",
+					"-Wl,-no_compact_unwind",
+				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = QueUp;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
@@ -1104,7 +1105,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "QueUp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Q-Up" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

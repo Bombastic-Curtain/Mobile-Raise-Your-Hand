@@ -17,7 +17,7 @@
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "QueUp.app"
                BlueprintName = "QueUp"
-               ReferencedContainer = "container:QueUp.xcodeproj">
+               ReferencedContainer = "container:Q-Up.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "QueUpTests.xctest"
                BlueprintName = "QueUpTests"
-               ReferencedContainer = "container:QueUp.xcodeproj">
+               ReferencedContainer = "container:Q-Up.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "QueUpTests.xctest"
                BlueprintName = "QueUpTests"
-               ReferencedContainer = "container:QueUp.xcodeproj">
+               ReferencedContainer = "container:Q-Up.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,7 +59,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "QueUp.app"
             BlueprintName = "QueUp"
-            ReferencedContainer = "container:QueUp.xcodeproj">
+            ReferencedContainer = "container:Q-Up.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -68,7 +68,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
@@ -79,7 +79,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "QueUp.app"
             BlueprintName = "QueUp"
-            ReferencedContainer = "container:QueUp.xcodeproj">
+            ReferencedContainer = "container:Q-Up.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -98,7 +98,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "QueUp.app"
             BlueprintName = "QueUp"
-            ReferencedContainer = "container:QueUp.xcodeproj">
+            ReferencedContainer = "container:Q-Up.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

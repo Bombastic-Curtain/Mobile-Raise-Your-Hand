@@ -18,9 +18,6 @@ var SideMenuIconComponent = require('../Components/SideMenuButton.js');
 
 var HomwView = require('./Home.js');
 
-
-var Video = require('react-native-video');
-
 var NativeViewBridge = require('NativeModules').NativeViewBridge;
 
 
@@ -186,14 +183,14 @@ var styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 10,
     marginTop: 220,
-    alignSelf: 'stretch',
+    marginLeft: 25,
+    alignSelf: 'center',
     justifyContent: 'center'
   },
   logo: { 
     marginLeft: 35,
-
     height: 80,
-    width: 240, 
+    width: 270, 
     marginRight: 10 
   },
 
