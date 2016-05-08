@@ -24,9 +24,14 @@ var LargeNumberBlock = React.createClass({
 var styles = StyleSheet.create({
 	container: {
 		justifyContent: 'center',
+		height: 80,
 		padding: 20,
 		borderRightColor: 'white',
-        borderRightWidth: .5
+    borderRightWidth: .5,
+    borderBottomColor: 'white',
+    borderBottomWidth: .5,
+    borderTopColor: 'white',
+    borderTopWidth: .5
 	},
 
 	value: {

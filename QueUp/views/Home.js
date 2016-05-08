@@ -64,19 +64,18 @@ module.exports = React.createClass({
 
     return (
     <MainSideMenu menu={<SideMenuView currentUser={this.props.currentUser}/>} ref="mainSideMenu">
-
-          <Router ref="router"
-            firstRoute = { 
-                  {
-                  name: 'Dashboard',
-                  data: {currentUser: this.state},
-                  component: DashboardView,
-                  leftCorner: SideMenuIconComponent,
-                  titleComponent: HeaderLogo
-                  }
-            }
-            headerStyle={styles.header}
-          />
+      <Router ref="router"
+        firstRoute = { 
+              {
+              name: 'Dashboard',
+              data: {currentUser: this.state},
+              component: DashboardView,
+              leftCorner: SideMenuIconComponent,
+              titleComponent: HeaderLogo
+              }
+        }
+        headerStyle={styles.header}
+      />
     </MainSideMenu>
 
     )

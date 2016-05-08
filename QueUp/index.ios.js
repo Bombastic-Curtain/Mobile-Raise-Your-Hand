@@ -35,14 +35,12 @@ renderScene: function(route, nav) {
     var currentUser;
     if(route.currentUser){
       return <HomeView currentUser={route.currentUser}/>;
-    }else{
+    } else {
         switch (route.id) {
           case 'login':
-            return <LoginView navigator={nav}/>;
+            return <LoginView navigator={nav} />;
           default:
-            return (
-              <LoginView navigator={nav}/>
-            );
+            return <LoginView navigator={nav}/>;
         }
     }
 

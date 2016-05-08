@@ -87,10 +87,6 @@ module.exports = React.createClass({
     // });
 
   },
-  shouldComponentUpdate:function(){
-  },
-  componentWillUnmount: function(){
-  },
   render: function() {
 
     Utils.updateStats();
@@ -105,27 +101,20 @@ module.exports = React.createClass({
       <View style={styles.container}>
         <ContributionCount currentUser = {this.state} />
         <View style={styles.dashBottom} >
+          <RNChart style={styles.chart}
+                      chartData={chartData}
+                      verticalGridStep="5"
+                      animationDuration= "3"
+                      xLabels={xLabels}
+                      showGrid = {false}
+                      showAxis = {false}
+                      labelFontSize = '1'
+                      labelTextColor = '#18CFAA'
+                      >
 
-   
-
-        <RNChart style={styles.chart}
-                    chartData={chartData}
-                    verticalGridStep="5"
-                    animationDuration= "3"
-                    xLabels={xLabels}
-                    showGrid = {false}
-                    showAxis = {false}
-                    labelFontSize = '1'
-                    labelTextColor = '#18CFAA'
-                    >
-
-        </RNChart>
-
-
-        </View>
-                <Stats />        
-
-
+          </RNChart>
+      </View>
+        <Stats />        
       </View>
     );
   }
@@ -151,7 +140,7 @@ var styles = StyleSheet.create({
     borderTopWidth: .5
   },
   dashBottom: {
-    height: DeviceHeight/2,
+    height: DeviceHeight - 290,
     width: DeviceWidth
   },
   chart: {

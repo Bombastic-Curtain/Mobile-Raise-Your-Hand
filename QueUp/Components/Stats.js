@@ -42,7 +42,7 @@ var Stats = module.exports = React.createClass({
       <View style={styles.iconContainer} >
         <LargeNumberBlock value={this.state.classes} label={'Classes'} />
         <LargeNumberBlock value={this.state.handsRaised} label={'Hands Raised'} />
-        <LargeNumberBlock value={this.state.calledsOn} label={'Calleds On'} />
+        <LargeNumberBlock value={this.state.calledsOn} label={'Contributions'} />
       </View>
     );
   }
@@ -52,13 +52,9 @@ var Stats = module.exports = React.createClass({
 var styles = StyleSheet.create({
 
   iconContainer: {
-    flex: 1,
+    height: 80,
     flexDirection: 'row',
-    justifyContent: 'center',
-    borderBottomColor: 'white',
-    borderBottomWidth: .5,
-    borderTopColor: 'white',
-    borderTopWidth: .5
+    justifyContent: 'center'
   }
 
 });

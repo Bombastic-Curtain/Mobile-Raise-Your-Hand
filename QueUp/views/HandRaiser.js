@@ -163,14 +163,18 @@ var HandRaiserView = module.exports = React.createClass({
       <View style={styles.container}>
           <Text style={styles.ClassTitle}> {this.props.data.selectedClass.ClassTitle} </Text>
           <Stats />
-          <View style={styles.handRaiseIcon}>
-            <HandRaiseButton onPress={Utils.updateStats} data={this.props.data} />
+          <View style={styles.handRaiseView}>
+            <View style={styles.handRaiseIcon}>
+              <HandRaiseButton onPress={Utils.updateStats} data={this.props.data} />
+            </View>
          </View>
       </View>
     );
   }
 
 });
+
+console.log(DeviceHeight);
 
 var styles = StyleSheet.create({
   container: {
@@ -200,8 +204,11 @@ var styles = StyleSheet.create({
     borderTopWidth: .5
 
   },
+  handRaiseView: {
+    overflow: DeviceHeight > 480 ? 'visible' : 'hidden'
+  },
   handRaiseIcon: {
-    height: DeviceHeight/1.4 
+    top: DeviceHeight > 480 ? -0 : -35
   },
 
   handIcon: { 

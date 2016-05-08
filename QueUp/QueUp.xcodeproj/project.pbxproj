@@ -44,7 +44,6 @@
 		321A3ECD1B20B986009CA64E /* FacebookLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 321A3ECC1B20B986009CA64E /* FacebookLoginManager.m */; };
 		321A3ECF1B20C032009CA64E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 321A3ECE1B20C032009CA64E /* Default-568h@2x.png */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		8B24749E1B1398DD00CF9000 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B24749D1B13989D00CF9000 /* libRCTVideo.a */; };
 		8B749E9A1B1BA0E200D360EF /* Sinch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749E991B1BA0E200D360EF /* Sinch.framework */; };
 		8B749EAA1B1BA0FA00D360EF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EA91B1BA0FA00D360EF /* AudioToolbox.framework */; };
 		8B749EAC1B1BA10100D360EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B749EAB1B1BA10100D360EF /* AVFoundation.framework */; };
@@ -200,7 +199,7 @@
 		00E356F21AD99517003FC87E /* QueUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueUpTests.m; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* QueUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Q^Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Q^Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = iOS/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = iOS/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -279,7 +278,6 @@
 				8B749EAC1B1BA10100D360EF /* AVFoundation.framework in Frameworks */,
 				8B749EAA1B1BA0FA00D360EF /* AudioToolbox.framework in Frameworks */,
 				321A3EC91B20B966009CA64E /* FBSDKCoreKit.framework in Frameworks */,
-				8B24749E1B1398DD00CF9000 /* libRCTVideo.a in Frameworks */,
 				8B8D522E1B10324F00157C20 /* libReactNativeIcons.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				321A3ECA1B20B966009CA64E /* FBSDKLoginKit.framework in Frameworks */,
@@ -521,7 +519,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* QueUp.app */,
+				13B07F961A680F5B00A75B9A /* Q^Up.app */,
 				00E356EE1AD99517003FC87E /* QueUpTests.xctest */,
 			);
 			name = Products;
@@ -594,7 +592,7 @@
 			);
 			name = QueUp;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* QueUp.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Q^Up.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -912,7 +910,7 @@
 				INFOPLIST_FILE = QueUpTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QueUpTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QueUp.app/QueUp";
 			};
 			name = Debug;
@@ -929,7 +927,7 @@
 				INFOPLIST_FILE = QueUpTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QueUpTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QueUp.app/QueUp";
 			};
 			name = Release;
@@ -941,9 +939,8 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/chent9288/Documents/FacebookSDK,
-					"$(PROJECT_DIR)",
 					/Users/johnpizzo/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -960,7 +957,7 @@
 					"-lc++",
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				PRODUCT_NAME = QueUp;
+				PRODUCT_NAME = "Q^Up";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "node_modules/react-native-swift-socketio/RNSwiftSocketIO/SocketBridge.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -975,9 +972,8 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/chent9288/Documents/FacebookSDK,
-					"$(PROJECT_DIR)",
 					/Users/johnpizzo/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -987,9 +983,14 @@
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-Xlinker",
+					"-lc++",
+					"-Wl,-no_compact_unwind",
+				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
-				PRODUCT_NAME = QueUp;
+				PRODUCT_NAME = "Q^Up";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "node_modules/react-native-swift-socketio/RNSwiftSocketIO/SocketBridge.h";
 				TARGETED_DEVICE_FAMILY = 1;
